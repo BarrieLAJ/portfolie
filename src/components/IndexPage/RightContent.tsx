@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const BlogsWrapper = styled.div`
-  ${tw`w-full h-64 m-2 p-3 max-w-lg`}
+  ${tw`w-full h-96 m-2 p-3 max-w-lg overflow-hidden`}
 `;
 
 const Footer = styled.div`
@@ -27,8 +27,8 @@ export const RightContent = () => {
   return (
     <Wrapper>
       <BlogsWrapper>
-        {Array(1, 2).map((id) => (
-          <BlogItem key={`${id}`} />
+        {Array(1, 2, 3).map((id) => (
+          <BlogItem item={id} key={`${id}`} />
         ))}
       </BlogsWrapper>
       <Footer>

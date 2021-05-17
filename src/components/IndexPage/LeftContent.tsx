@@ -20,6 +20,10 @@ const BannerName = styled.div`
 
 const BannerAbout = styled.p`
   ${tw`mt-12 py-2 text-sm font-semibold w-10/12 h-28 leading-loose tracking-wide text-gray-100`}
+  .coloured {
+      color: #118AB2;
+      ${tw`font-bold`}
+  }
 `;
 const AboutLink = styled.a`
   ${tw`block mt-1 text-2xl tracking-wider lowercase`}
@@ -42,21 +46,20 @@ export const LeftContent = () => {
           barrie <span className="coloured">abubakarr</span>
         </BannerName>
         <BannerAbout>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-          quibusdam. Dolore, asperiores enim minima iusto eaque
+          Hi there, I am a <span className="coloured">Junior Frontend Developer</span> from Sierra Leone. I build reach <span className="coloured">User Experiences (UI)</span> with <span className="coloured">React</span>.
         </BannerAbout>
         <AboutLink href="/about">Know More {">"}</AboutLink>
       </Banner>
       <Footer>
-        <Socials target="_black" href="www.twitter.com/@barrie_laj">
+        <Socials target="_black" href="https://www.twitter.com/@barrie_laj">
           <GrTwitter className="inline text-current h-4 w-4 mb-px" />
           <span className="ml-1">Twitter</span>
         </Socials>
-        <Socials target="_black" href="www.github.com/@BarrieLAJ">
+        <Socials target="_black" href="https://www.github.com/BarrieLAJ">
           <GrGithub className="inline text-current h-4 w-4 mb-px" />
           <span className="ml-1">Github</span>
         </Socials>
-        <Socials target="_black" href="m.facebook.com">
+        <Socials target="_black" href="https://www.facebook.com/alhajiab.barrie/">
           <GrFacebookOption className="inline text-current h-4 w-4 mb-px" />
           <span className="ml-1">Facebook</span>
         </Socials>
