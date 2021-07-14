@@ -10,8 +10,7 @@ import { RightContent } from "../components/IndexPage/RightContent";
 
 
 const Wrapper = styled.div`
-  ${tw`flex mx-32 max-w-5xl mt-16 gap-56`}
-  height: calc(100vh - 25vh);
+  ${tw`lg:flex lg:mx-28 mt-16 lg:height[calc(100vh - 25vh)] xl:gap-28 sm:gap-56`}
 `
 
 
