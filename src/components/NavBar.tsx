@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import {HiMenu } from "react-icons/hi"
+import { HiMenu } from "react-icons/hi";
 
 const Wrapper = styled.div`
   height: calc(100vh - 90vh);
@@ -26,23 +26,23 @@ const Navs = styled.ul`
 const HambugerMenu = styled.button`
   ${tw`text-white outline-none focus:border-none focus:outline-none focus:ring-2 ring-blue-300 rounded lg:hidden`}
 `;
-const NavLinks = styled.li`
+export const NavLinks = styled.li`
   a {
-    ${tw`text-gray-100 text-lg p-2 hover:text-white`}
+    ${tw`text-gray-100 text-lg sm:p-2 hover:text-white sm:w-max w-full py-2`}
     :hover {
       background-color: #118ab2;
     }
   }
 `;
 
-export const NavBar = () => {
+export const NavBar = (props) => {
   return (
     <Wrapper>
       <Brand>
         <a href="/">Alhaji</a>
       </Brand>
-      <HambugerMenu>
-      <HiMenu className="text-current h-8 w-8" />
+      <HambugerMenu onClick={() => props.setOpen(!props.open)}>
+        <HiMenu className="text-current h-8 w-8" />
       </HambugerMenu>
       <Navs>
         <NavLinks>

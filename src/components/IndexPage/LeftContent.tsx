@@ -46,7 +46,7 @@ export const LeftContent = () => {
           barrie <span className="coloured">abubakarr</span>
         </BannerName>
         <BannerAbout>
-          Hi there, I am a <span className="coloured">Junior Frontend Developer</span> from Sierra Leone. I build reach <span className="coloured">User Experiences (UI)</span> with <span className="coloured">React</span>.
+          Hi there, I am a <span className="coloured">Junior Frontend Developer</span> from Sierra Leone. I build reach <span className="coloured">User Experiences (UX)</span> with <span className="coloured">React</span>.
         </BannerAbout>
         <AboutLink href="/about">Know More {">"}</AboutLink>
       </Banner>

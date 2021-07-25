@@ -16,7 +16,7 @@ const Title = styled.h3`
 ${tw`text-gray-100 text-base 2xl:text-4xl mx-0 my-3 capitalize font-bold`}`
 
 const Excerpt = styled.p`
-${tw`text-gray-100 text-sm 2xl:text-4xl 2xl:tracking-wide break-words 2xl:leading-relaxed`}`
+${tw`text-gray-100 text-sm 2xl:text-4xl 2xl:w-5/6 2xl:tracking-wide 2xl:leading-relaxed`}`
 
 export const BlogItem = ({item}:{item: any}) => {
     return (

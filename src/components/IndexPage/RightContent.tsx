@@ -8,10 +8,10 @@ const Wrapper = styled.div`
   ${tw`relative ml-auto lg:w-96 mt-6 lg:mt-0 2xl:w-5/12`}
 `;
 const SuperBlogsWrapper = styled.div`
-${tw`overflow-x-auto lg:overflow-x-auto 2xl:w-full`}
-`
+  ${tw`overflow-x-auto lg:overflow-x-hidden 2xl:overflow-x-auto `}
+`;
 const BlogsWrapper = styled.div`
-  ${tw`lg:w-full min-w-max lg:h-96 2xl:height[900px] m-2 p-3 lg:max-w-lg overflow-x-scroll lg:overflow-hidden flex flex-nowrap lg:flex-col`}
+  ${tw`lg:w-full min-w-max lg:height[22rem] 2xl:height[900px] m-2 p-3 lg:max-w-lg overflow-x-scroll lg:overflow-hidden flex flex-nowrap lg:flex-col`}
 `;
 
 const Footer = styled.div`
@@ -38,10 +38,10 @@ export const RightContent = () => {
       </SuperBlogsWrapper>
       <Footer>
         <Scroller>
-          <HiChevronUp className='h-20 w-20 text-current' />
+          <HiChevronUp className="2xl:h-20 2xl:w-20 text-current" />
         </Scroller>
         <Scroller>
-          <HiChevronDown className='h-20 w-20 text-current' />
+          <HiChevronDown className="2xl:h-20 2xl:w-20 text-current" />
         </Scroller>
       </Footer>
     </Wrapper>
