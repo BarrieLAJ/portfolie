@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import tw from "twin.macro";
 import { HiMenu } from "react-icons/hi";
+
+const animation = keyframes`
+  from {
+    height: 0;
+  }
+  to {
+    height: max-content;
+  }
+`
 
 const Wrapper = styled.div`
   height: max-content;
@@ -10,8 +19,13 @@ const Wrapper = styled.div`
 `;
 
 const NavWrapper = styled.div`
-  height: max-content;
+  height: auto;
+  max-height: 600px;
   ${tw`flex justify-between my-0 py-1 lg:px-32 px-6 w-full items-center lg:gap-96  2xl:gap[1100px] `}
+  /* &.open {
+    max-height: auto;
+    transition: max-height 400ms ease;
+  } */
 `;
 
 const Brand = styled.div`
@@ -24,20 +38,23 @@ const Brand = styled.div`
 `;
 
 const Navs = styled.ul`
-  /*justify-content: space-evenly;*/
-  /* align-content: baseline; */
   flex: 2;
   ${tw`hidden lg:flex items-center gap-16`}
 `;
 
-const NavsMobile = styled.ul((props) => ({
-  display: props.open ? "flex" : "none",
-  flexDirection: "column",
-  alignItems: "start",
-  width: "100%",
-  paddingTop: "1em",
-  marginLeft: "0.8em",
-}));
+const NavsMobile = styled.ul`
+  flex-direction: column;
+  align-items: start;
+  /* animation: ${animation} 1s cubic-bezier(0.6, -0.02, 0.34, 1.07); */
+  width: 100%;
+  height: 0;
+  padding-top: 1em;
+  margin-left: 0.8em;
+  transition: height 1s ease;
+  &.open{
+    height: max-content;
+  }
+`;
 const HambugerMenu = styled.button`
   ${tw`text-white outline-none focus:border-none mb-2 focus:outline-none focus:ring-2 ring-blue-300 rounded lg:hidden`}
 `;
@@ -54,42 +71,52 @@ export const NavBar = (props) => {
   const [open, setOpen] = useState(false);
   return (
     <Wrapper>
-      <NavWrapper>
-      <Brand>
-        <a href="/">Alhaji</a>
-      </Brand>
-      <HambugerMenu onClick={() => setOpen(!open)}>
-        <HiMenu className="text-current h-9 w-12 border border-gray-100 rounded" />
-      </HambugerMenu>
-      <Navs>
-        <NavLinks>
-          <a href="/">home</a>
-        </NavLinks>
-        <NavLinks>
-          <a href="/about">about</a>
-        </NavLinks>
-        <NavLinks>
-          <a href="/portfolio">portfolio</a>
-        </NavLinks>
-        <NavLinks>
-          <a href="/contact">contact</a>
-        </NavLinks>
-      </Navs>
+      <NavWrapper className={`${open ? "open" : ""}`}>
+        <Brand>
+          <a href="/">Alhaji</a>
+        </Brand>
+        <HambugerMenu onClick={() => setOpen(!open)}>
+          <HiMenu className="text-current h-9 w-12 border border-gray-100 rounded" />
+        </HambugerMenu>
+        <Navs>
+          <NavLinks>
+            <a href="/">home</a>
+          </NavLinks>
+          <NavLinks>
+            <a href="/about">about</a>
+          </NavLinks>
+          <NavLinks>
+            <a href="/portfolio">portfolio</a>
+          </NavLinks>
+          <NavLinks>
+            <a href="/contact">contact</a>
+          </NavLinks>
+        </Navs>
       </NavWrapper>
-      <NavsMobile open={open}>
-        <NavLinks className="w-full">
-          <a className="w-full" href="/">home</a>
-        </NavLinks>
-        <NavLinks className="w-full">
-          <a className="w-full" href="/about">about</a>
-        </NavLinks>
-        <NavLinks className="w-full">
-          <a className="w-full" href="/portfolio">portfolio</a>
-        </NavLinks>
-        <NavLinks className="w-full">
-          <a className="w-full" href="/contact">contact</a>
-        </NavLinks>
-      </NavsMobile>
+      {open && (
+        <NavsMobile className={`${open ? "open" : ""}`}>
+          <NavLinks className="w-full">
+            <a className="w-full" href="/">
+              home
+            </a>
+          </NavLinks>
+          <NavLinks className="w-full">
+            <a className="w-full" href="/about">
+              about
+            </a>
+          </NavLinks>
+          <NavLinks className="w-full">
+            <a className="w-full" href="/portfolio">
+              portfolio
+            </a>
+          </NavLinks>
+          <NavLinks className="w-full">
+            <a className="w-full" href="/contact">
+              contact
+            </a>
+          </NavLinks>
+        </NavsMobile>
+      )}
     </Wrapper>
   );
 };
